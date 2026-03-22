@@ -3988,16 +3988,16 @@ Current Test 997/1000 Start Date and Time:2026-01-04 00:14:47.924
 module reboot, waiting for device to come back online... 
 Device is back online 
 Current Test 997/1000 End Date and Time:2026-01-04 00:16:25.639 
-Current Test 998/1000 Start Date and Time:2026-01-04 00:46:26.033 
+Current Test 998/1000 Start Date and Time:2026-01-04 00:16:26.033 
 module reboot, waiting for device to come back online... 
 Device is back online 
-Current Test 998/1000 End Date and Time:2026-01-04 00:48:03.525 
-Current Test 999/1000 Start Date and Time:2026-01-04 00:48:03.853 
+Current Test 998/1000 End Date and Time:2026-01-04 00:18:03.525 
+Current Test 999/1000 Start Date and Time:2026-01-04 00:18:03.853 
 module reboot, waiting for device to come back online... 
 Device is back online 
-Current Test 999/1000 End Date and Time:2026-01-04 00:49:35.424 
-Current Test 1000/1000 Start Date and Time:2026-01-04 00:49:35.752 
+Current Test 999/1000 End Date and Time:2026-01-04 00:19:35.424 
+Current Test 1000/1000 Start Date and Time:2026-01-04 00:19:35.752 
 module reboot, waiting for device to come back online... 
 Device is back online 
-Current Test 1000/1000 End Date and Time:2026-01-04 00:51:07.428 
+Current Test 1000/1000 End Date and Time:2026-01-04 00:21:07.428 
 End Reboot Stress Test, All pass 
