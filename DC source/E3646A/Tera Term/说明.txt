@@ -1,0 +1,1 @@
+打开 Tera Term，点击菜单 Control → Macro，选择刚才保存的 cycle.ttl 即可运行

@@ -1,0 +1,65 @@
+; ========== 配置参数 ==========
+comport = 'COM3'         ; 串口号
+baud = 9600
+channel = 'OUT1'
+voltage = 5.0
+current = 1.0
+on_time = 5
+off_time = 5
+cycles = 10
+logfile = 'log.txt'
+csvfile = 'measure.csv'
+; =============================
+
+; 初始化 CSV 文件
+filewrite csvfile 'Cycle,Timestamp,Voltage(V),Current(A)\n'
+
+; 连接串口
+connect '/C=' comport '/BAUD=' baud
+pause 1
+
+; 发送初始化命令
+sendln '*IDN?'
+wait 1
+recvln
+logwrite inputstr
+
+sendln 'INST:SEL ' channel
+sendln 'VOLT ' voltage
+sendln 'CURR ' current
+
+; 主循环
+for cycles_i 1 cycles 1
+    logwrite '----- 第 ' cycles_i ' 次循环开始 -----\n'
+    
+    ; 开启输出
+    sendln 'OUTP ON'
+    logwrite '输出已开启\n'
+    pause on_time
+    
+    ; 测量电压电流（在 ON 期间）
+    sendln 'MEAS:VOLT?'
+    wait 1
+    recvln
+    set volt inputstr
+    sendln 'MEAS:CURR?'
+    wait 1
+    recvln
+    set curr inputstr
+    
+    ; 记录到 CSV
+    gettime timestamp "%Y-%m-%d %H:%M:%S"
+    filewrite csvfile cycles_i ',' timestamp ',' volt ',' curr '\n'
+    logwrite '测量: ' volt 'V, ' curr 'A\n'
+    
+    ; 关闭输出
+    sendln 'OUTP OFF'
+    logwrite '输出已关闭\n'
+    pause off_time
+endfor
+
+; 清理
+sendln 'OUTP OFF'
+unlink
+logwrite '程序结束\n'
+end

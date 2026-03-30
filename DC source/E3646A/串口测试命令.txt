@@ -1,0 +1,20 @@
+*IDN?              ← 先确认连接
+INST:SEL OUT1      ← 选输出1
+VOLT 5.0           ← 设5V
+CURR 1.0           ← 限流1A
+OUTP ON            ← 开输出
+OUTP OFF           ← 关输出
+*SAV 1             ← 保存当前设置
+*RCL 1             ← 下次直接调用
+OUTP ON
+如果想同时控制两个通道：
+INST:SEL OUT1
+VOLT 5.0
+CURR 1.0
+OUTP ON
+
+INST:SEL OUT2
+VOLT 12.0
+CURR 0.5
+OUTP ON
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
